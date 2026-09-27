@@ -1,0 +1,23 @@
+{
+  "key.price-tracker.lookup": "Look up price of hovered item",
+  "text.autoconfig.price-tracker.title": "Price Tracker",
+  "text.autoconfig.price-tracker.option.defaultRange": "Default range",
+  "text.autoconfig.price-tracker.option.refreshSeconds": "Refresh interval (seconds)",
+  "text.autoconfig.price-tracker.option.persistWindows": "Remember open windows",
+  "text.autoconfig.price-tracker.option.debugItemNbt": "Debug: log item NBT on unresolved lookup",
+  "text.autoconfig.price-tracker.option.details": "Detail lines (full view)",
+  "text.autoconfig.price-tracker.option.details.change": "Price change %",
+  "text.autoconfig.price-tracker.option.details.volume": "Bazaar volume",
+  "text.autoconfig.price-tracker.option.details.orders": "Bazaar orders/offers",
+  "text.autoconfig.price-tracker.option.details.margin": "Bazaar margin",
+  "text.autoconfig.price-tracker.option.details.lowHigh": "Auction low/high",
+  "text.autoconfig.price-tracker.option.details.liquidity": "Liquidity",
+  "text.autoconfig.price-tracker.option.details.binDepth": "2nd/3rd lowest BIN",
+  "text.autoconfig.price-tracker.option.details.npc": "NPC sell price",
+  "price-tracker.title": "Price Tracker",
+  "price-tracker.loading": "Fetching prices…",
+  "price-tracker.no_item": "No SkyBlock item under the cursor.",
+  "price-tracker.market.bazaar": "Bazaar",
+  "price-tracker.market.auction": "Auction House",
+  "price-tracker.market.unknown": "Not found on Bazaar or AH"
+}

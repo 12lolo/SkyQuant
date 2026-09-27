@@ -1,0 +1,51 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+}
+
+version = mod_version
+group = maven_group
+
+base {
+    archivesName = archives_base_name
+}
+
+repositories {
+    maven { url = 'https://maven.fabricmc.net/' }
+    maven { url = 'https://maven.shedaniel.me/' }
+    maven {
+        url = 'https://api.modrinth.com/maven'
+        content { includeGroup("maven.modrinth") }
+    }
+    mavenCentral()
+}
+
+dependencies {
+    // MC 26.x is unobfuscated: no mappings, net.fabricmc.fabric-loom does not remap.
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+    // Config UI (already present in the instance; compile-only, not bundled).
+    implementation "me.shedaniel.cloth:cloth-config-fabric:${clothConfig_version}"
+    implementation "maven.modrinth:modmenu:${modMenu_version}"
+    // Gson ships with Minecraft; HTTP uses java.net.http (JDK). No extra runtime deps.
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/price-tracker.accesswidener")
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 25
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+}
+
+processResources {
+    inputs.property "version", project.version
+    filesMatching("fabric.mod.json") {
+        expand "version": inputs.properties.version
+    }
+}

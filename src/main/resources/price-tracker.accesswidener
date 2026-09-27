@@ -1,0 +1,4 @@
+accessWidener	v2	official
+
+# Expose the hovered slot so we can read the item under the cursor in any container screen.
+accessible	field	net/minecraft/client/gui/screens/inventory/AbstractContainerScreen	hoveredSlot	Lnet/minecraft/world/inventory/Slot;

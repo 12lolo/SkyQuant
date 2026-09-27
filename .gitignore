@@ -1,0 +1,14 @@
+# Build output
+build/
+.gradle/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+run/
+
+# Secrets — never commit the Hypixel API key
+key.md
+key.txt
+*.key
