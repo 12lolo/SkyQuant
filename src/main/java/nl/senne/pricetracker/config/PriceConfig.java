@@ -7,7 +7,7 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import nl.senne.pricetracker.model.PriceModels.Range;
 
-@Config(name = "price-tracker")
+@Config(name = "skyquant")
 public class PriceConfig implements ConfigData {
 
     @ConfigEntry.Gui.Tooltip

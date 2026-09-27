@@ -12,7 +12,7 @@ import net.minecraft.network.chat.Component;
 public class PriceHostScreen extends Screen {
 
     public PriceHostScreen() {
-        super(Component.literal("Price Tracker"));
+        super(Component.literal("SkyQuant"));
     }
 
     @Override

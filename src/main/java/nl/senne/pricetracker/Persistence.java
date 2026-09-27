@@ -35,7 +35,7 @@ public final class Persistence {
     }
 
     private static Path file() {
-        return FabricLoader.getInstance().getConfigDir().resolve("price-tracker-windows.json");
+        return FabricLoader.getInstance().getConfigDir().resolve("skyquant-windows.json");
     }
 
     public static Layout load() {

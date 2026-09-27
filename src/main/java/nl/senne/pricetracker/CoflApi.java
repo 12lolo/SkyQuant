@@ -49,7 +49,7 @@ public final class CoflApi {
     private static final java.util.concurrent.Semaphore GATE = new java.util.concurrent.Semaphore(4);
     private static final java.util.concurrent.Executor GATE_EXEC =
             java.util.concurrent.Executors.newCachedThreadPool(r -> {
-                Thread t = new Thread(r, "price-tracker-http");
+                Thread t = new Thread(r, "skyquant-http");
                 t.setDaemon(true);
                 return t;
             });
@@ -164,7 +164,7 @@ public final class CoflApi {
         HttpRequest req = HttpRequest.newBuilder(URI.create(BASE + path))
                 .timeout(TIMEOUT)
                 .header("Accept", "application/json")
-                .header("User-Agent", "price-tracker-mod/1.0 (Fabric)")
+                .header("User-Agent", "skyquant-mod/1.0 (Fabric)")
                 .GET()
                 .build();
         // Acquire the permit off the render thread, then fire the request; release on completion.

@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "id": "price-tracker",
+  "id": "skyquant",
   "version": "${version}",
-  "name": "Price Tracker",
-  "description": "Hover a SkyBlock item and press a key to see where it sells (Bazaar or Auction House), its current price and a price-history graph. Powered by the Coflnet SkyBlock API.",
+  "name": "SkyQuant",
+  "description": "A clean, modern, interactive price-graph overlay for Hypixel SkyBlock. Hover an item (or /graph <name>) to open a draggable, resizable panel with Bazaar/Auction House prices and history. Powered by the Coflnet SkyBlock API.",
   "authors": [
-    "Senne"
+    "Senne Visser"
   ],
   "license": "MIT",
-  "icon": "assets/price-tracker/icon.png",
+  "icon": "assets/skyquant/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
@@ -18,7 +18,7 @@
       "nl.senne.pricetracker.config.ModMenuIntegration"
     ]
   },
-  "accessWidener": "price-tracker.accesswidener",
+  "accessWidener": "skyquant.accesswidener",
   "depends": {
     "fabricloader": ">=0.19.3",
     "minecraft": ">=26.1",

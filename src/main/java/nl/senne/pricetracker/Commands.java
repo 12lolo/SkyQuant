@@ -43,13 +43,13 @@ public final class Commands {
 
     private static void open(FabricClientCommandSource source, String text) {
         if (!ItemCatalog.isLoaded()) {
-            source.sendFeedback(Component.literal("§e[Price Tracker] Item list still loading, try again in a moment…"));
+            source.sendFeedback(Component.literal("§e[SkyQuant] Item list still loading, try again in a moment…"));
             ItemCatalog.ensureLoaded();
             return;
         }
         ItemCatalog.Entry e = ItemCatalog.resolve(text);
         if (e == null) {
-            source.sendFeedback(Component.literal("§c[Price Tracker] No item matching §f" + text));
+            source.sendFeedback(Component.literal("§c[SkyQuant] No item matching §f" + text));
             return;
         }
         PriceOverlay.show(e.tag(), e.name());

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkyQuant — interactive SkyBlock price graphs</title>
+<meta name="description" content="A clean, modern, interactive price-graph overlay for Hypixel SkyBlock. Draggable, resizable Bazaar & Auction House graphs, in-game.">
+<style>
+  :root{
+    --bg:#0d0f13; --panel:#121418; --panel2:#171a20; --border:#2a2f3a;
+    --text:#e7e9ee; --dim:#8b909b; --accent:#5aa0ff; --green:#55e06b; --red:#f06868; --gold:#ffd25a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:radial-gradient(1200px 600px at 50% -10%, #1a2030 0%, var(--bg) 55%) no-repeat, var(--bg);
+    color:var(--text); font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  header{padding:64px 0 24px;text-align:center}
+  .logo{width:88px;height:88px;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+  h1{font-size:52px;margin:18px 0 6px;letter-spacing:-1px}
+  .tag{color:var(--dim);font-size:19px;max-width:620px;margin:0 auto}
+  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:28px 0 8px}
+  .btn{display:inline-block;padding:12px 22px;border-radius:12px;text-decoration:none;font-weight:600;border:1px solid var(--border)}
+  .btn.primary{background:var(--accent);color:#08111f;border-color:transparent}
+  .btn.ghost{background:var(--panel);color:var(--text)}
+  .note{color:var(--dim);font-size:13px;margin-top:6px}
+
+  .demo{margin:40px auto;max-width:560px;background:var(--panel);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .demo .bar{display:flex;align-items:center;gap:8px;background:var(--panel2);padding:8px 12px;border-bottom:2px solid var(--accent)}
+  .demo .bar b{font-size:14px}
+  .demo .bar .sp{flex:1}
+  .demo .bar .pill{width:12px;height:12px;border-radius:3px;background:#2a2f3a}
+  .demo svg{display:block;width:100%;height:220px;background:#0f1216}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:28px 0}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px}
+  .card h3{margin:0 0 6px;font-size:16px}
+  .card p{margin:0;color:var(--dim);font-size:14px}
+  .k{color:var(--accent);font-weight:700}
+
+  .how{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:22px 0}
+  .how code{background:#0f1216;border:1px solid var(--border);border-radius:6px;padding:2px 7px;color:var(--green)}
+  .how li{margin:8px 0}
+  footer{text-align:center;color:var(--dim);font-size:13px;padding:40px 0 60px}
+  footer a{color:var(--dim)}
+  a{color:var(--accent)}
+  @media(max-width:520px){h1{font-size:40px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="logo" src="icon.png" alt="SkyQuant">
+    <h1>SkyQuant</h1>
+    <p class="tag">A clean, modern, <b>interactive price-graph overlay</b> for Hypixel SkyBlock — in-game, without the blocky Minecraft UI.</p>
+    <div class="cta">
+      <a class="btn primary" href="#" data-modrinth>Download on Modrinth</a>
+      <a class="btn ghost" href="https://github.com/" data-github>View on GitHub</a>
+    </div>
+    <div class="note">Requires Fabric + Fabric API + Cloth Config · Minecraft 26.1.2</div>
+  </header>
+
+  <!-- little live-styled demo panel -->
+  <div class="demo" aria-hidden="true">
+    <div class="bar"><b>Enchanted Diamond</b><span class="sp"></span><span class="pill"></span><span class="pill"></span><span class="pill"></span></div>
+    <svg viewBox="0 0 560 220" preserveAspectRatio="none">
+      <g stroke="#ffffff14">
+        <line x1="0" y1="55" x2="560" y2="55"/><line x1="0" y1="110" x2="560" y2="110"/><line x1="0" y1="165" x2="560" y2="165"/>
+      </g>
+      <path d="M0,150 L70,150 L110,120 L160,132 L220,90 L280,96 L330,70 L390,84 L450,55 L520,62 L560,58"
+            fill="none" stroke="#55e06b" stroke-width="3"/>
+      <path d="M0,150 L70,150 L110,120 L160,132 L220,90 L280,96 L330,70 L390,84 L450,55 L520,62 L560,58 L560,220 L0,220 Z"
+            fill="#55e06b22"/>
+      <path d="M0,190 L90,188 L150,192 L240,184 L320,190 L420,182 L520,188 L560,186"
+            fill="none" stroke="#f06868" stroke-width="3"/>
+    </svg>
+  </div>
+
+  <section class="grid">
+    <div class="card"><h3>Draggable graph windows</h3><p>Move, freely resize, and pin as many as you like. Not tooltips — actual interactive panels.</p></div>
+    <div class="card"><h3>Hover to scrub</h3><p>A crosshair reveals the exact price, buy/sell, and <span class="k">margin</span> at any moment in time.</p></div>
+    <div class="card"><h3>Bazaar &amp; Auction House</h3><p>Insta-buy/sell, volume, orders, margin, liquidity — or lowest BIN + 2nd/3rd, sold median, period low/high.</p></div>
+    <div class="card"><h3>5 ranges, live</h3><p>1d / 1w / 1mo / 6mo / 1y on a real time axis, auto-refreshing with a freshness indicator.</p></div>
+    <div class="card"><h3>Compact mode</h3><p>Drag a window short and it collapses to a clean graph-only strip with the name overlaid.</p></div>
+    <div class="card"><h3>/graph autocomplete</h3><p>Type <span class="k">/graph &lt;item&gt;</span> for any item — tab-complete from the full SkyBlock catalog.</p></div>
+  </section>
+
+  <div class="how">
+    <h3>Getting started</h3>
+    <ol>
+      <li>Install <a href="https://fabricmc.net/">Fabric</a>, <a href="https://modrinth.com/mod/fabric-api">Fabric API</a> and <a href="https://modrinth.com/mod/cloth-config">Cloth Config</a>.</li>
+      <li>Drop <b>SkyQuant</b> into your <code>mods</code> folder.</li>
+      <li>In-game: hover an item and press <code>Y</code>, or run <code>/graph &lt;item&gt;</code>.</li>
+    </ol>
+  </div>
+
+  <footer>
+    Price &amp; history data from <a href="https://sky.coflnet.com/">Coflnet</a>. Not affiliated with Coflnet or Hypixel.<br>
+    Open source under the MIT license · © 2026 Senne Visser
+  </footer>
+</div>
+</body>
+</html>

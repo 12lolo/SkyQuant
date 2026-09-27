@@ -20,8 +20,8 @@ import org.slf4j.LoggerFactory;
 
 public class PriceTracker implements ClientModInitializer {
 
-    public static final String MOD_ID = "price-tracker";
-    public static final Logger LOG = LoggerFactory.getLogger("price-tracker");
+    public static final String MOD_ID = "skyquant";
+    public static final Logger LOG = LoggerFactory.getLogger("skyquant");
 
     private static KeyMapping lookupKey;
 
@@ -29,7 +29,7 @@ public class PriceTracker implements ClientModInitializer {
     public void onInitializeClient() {
         PriceConfig.register();
         lookupKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
-                "key.price-tracker.lookup",
+                "key.skyquant.lookup",
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_Y,
                 KeyMapping.Category.MISC));
@@ -37,7 +37,7 @@ public class PriceTracker implements ClientModInitializer {
         ItemCatalog.ensureLoaded();
         PriceOverlay.restore();
         ClientLifecycleEvents.CLIENT_STOPPING.register(client -> PriceOverlay.save());
-        LOG.info("[price-tracker] initialized; lookup keybind registered (default Y)");
+        LOG.info("[skyquant] initialized; lookup keybind registered (default Y)");
 
         // Draw/interact the overlay on container screens (game GUIs) and our own host
         // screen (opened by /graph). Fabric resets per-screen listeners each init.
@@ -75,12 +75,12 @@ public class PriceTracker implements ClientModInitializer {
         String id = ItemResolver.skyblockId(stack);
         if (id == null) {
             if (PriceConfig.get().debugItemNbt) {
-                LOG.info("[price-tracker] unresolved item; custom_data={}", ItemResolver.debugCustomData(stack));
+                LOG.info("[skyquant] unresolved item; custom_data={}", ItemResolver.debugCustomData(stack));
             }
             if (client.player != null) {
                 String label = stack.getHoverName().getString().replaceAll("(?i)§[0-9A-FK-OR]", "");
                 client.player.sendSystemMessage(Component.literal(
-                        "§c[Price Tracker] Couldn't find a SkyBlock price for §f" + label));
+                        "§c[SkyQuant] Couldn't find a SkyBlock price for §f" + label));
             }
             return;
         }

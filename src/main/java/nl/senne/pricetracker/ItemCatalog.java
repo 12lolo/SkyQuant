@@ -46,7 +46,7 @@ public final class ItemCatalog {
         HttpRequest req = HttpRequest.newBuilder(URI.create("https://sky.coflnet.com/api/items"))
                 .timeout(Duration.ofSeconds(20))
                 .header("Accept", "application/json")
-                .header("User-Agent", "price-tracker-mod/1.0 (Fabric)")
+                .header("User-Agent", "skyquant-mod/1.0 (Fabric)")
                 .GET()
                 .build();
         HTTP.sendAsync(req, HttpResponse.BodyHandlers.ofString())
@@ -55,9 +55,9 @@ public final class ItemCatalog {
                     try {
                         if (err == null && el != null && el.isJsonArray()) {
                             entries = parse(el.getAsJsonArray());
-                            PriceTracker.LOG.info("[price-tracker] item catalog loaded: {} items", entries.size());
+                            PriceTracker.LOG.info("[skyquant] item catalog loaded: {} items", entries.size());
                         } else {
-                            PriceTracker.LOG.warn("[price-tracker] item catalog failed to load", err);
+                            PriceTracker.LOG.warn("[skyquant] item catalog failed to load", err);
                         }
                     } finally {
                         loading.set(false);

@@ -31,7 +31,7 @@ dependencies {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/price-tracker.accesswidener")
+    accessWidenerPath = file("src/main/resources/skyquant.accesswidener")
 }
 
 tasks.withType(JavaCompile).configureEach {

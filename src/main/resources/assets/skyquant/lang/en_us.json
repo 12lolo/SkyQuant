@@ -1,0 +1,23 @@
+{
+  "key.skyquant.lookup": "Look up price of hovered item",
+  "text.autoconfig.skyquant.title": "SkyQuant",
+  "text.autoconfig.skyquant.option.defaultRange": "Default range",
+  "text.autoconfig.skyquant.option.refreshSeconds": "Refresh interval (seconds)",
+  "text.autoconfig.skyquant.option.persistWindows": "Remember open windows",
+  "text.autoconfig.skyquant.option.debugItemNbt": "Debug: log item NBT on unresolved lookup",
+  "text.autoconfig.skyquant.option.details": "Detail lines (full view)",
+  "text.autoconfig.skyquant.option.details.change": "Price change %",
+  "text.autoconfig.skyquant.option.details.volume": "Bazaar volume",
+  "text.autoconfig.skyquant.option.details.orders": "Bazaar orders/offers",
+  "text.autoconfig.skyquant.option.details.margin": "Bazaar margin",
+  "text.autoconfig.skyquant.option.details.lowHigh": "Auction low/high",
+  "text.autoconfig.skyquant.option.details.liquidity": "Liquidity",
+  "text.autoconfig.skyquant.option.details.binDepth": "2nd/3rd lowest BIN",
+  "text.autoconfig.skyquant.option.details.npc": "NPC sell price",
+  "skyquant.title": "SkyQuant",
+  "skyquant.loading": "Fetching prices…",
+  "skyquant.no_item": "No SkyBlock item under the cursor.",
+  "skyquant.market.bazaar": "Bazaar",
+  "skyquant.market.auction": "Auction House",
+  "skyquant.market.unknown": "Not found on Bazaar or AH"
+}

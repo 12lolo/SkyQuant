@@ -6,4 +6,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "price-tracker"
+rootProject.name = "skyquant"
